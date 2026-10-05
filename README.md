@@ -39,7 +39,7 @@ OLLAMA_MODEL=qwen3:1.7b OLLAMA_URL=http://127.0.0.1:11434 npm start
 
 If AgentGate was already running in Evidence mode, stop that app process before restarting it with the model settings. Select **AI** in the question composer after the model status reports it is reachable. The app never silently substitutes evidence text when an AI request fails.
 
-The optional `./scripts/model-start.sh` launcher is for an existing project-local runtime at `.local/ollama/ollama`; a fresh clone does not contain that executable. [Local model setup and provenance](docs/local-model.md) explains both installation options, the tested versions, and model hashes.
+The optional `bash scripts/model-start.sh` launcher is for an existing project-local runtime at `.local/ollama/ollama`; a fresh clone does not contain that executable. Invoking it with Bash works even when the source download does not preserve the script's executable bit. [Local model setup and provenance](docs/local-model.md) explains both installation options, the tested versions, and model hashes.
 
 ## A short demonstration
 

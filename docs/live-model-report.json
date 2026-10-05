@@ -1,0 +1,42 @@
+{
+  "verifiedAt": "2026-10-05T19:07:03.497Z",
+  "target": "Local AgentGate HTTP server",
+  "model": "qwen3:1.7b",
+  "checks": [
+    {
+      "name": "Real AI summary uses two permitted, masked account sources",
+      "passed": true
+    },
+    {
+      "name": "Same policy and query reuse the server cache",
+      "passed": true
+    },
+    {
+      "name": "Revocation clears old turns and blocks the revoked adjustment source",
+      "passed": true
+    },
+    {
+      "name": "Changing role blocks the original customer question",
+      "passed": true
+    },
+    {
+      "name": "Marketing still receives a genuine AI answer from aggregate data",
+      "passed": true
+    },
+    {
+      "name": "Restricted token and policy-bypass requests return no sources",
+      "passed": true
+    },
+    {
+      "name": "Downloadable evidence contains only bounded decision metadata",
+      "passed": true
+    },
+    {
+      "name": "Interactive policy suite passes without calling a model",
+      "passed": true
+    }
+  ],
+  "passed": 8,
+  "total": 8,
+  "scope": "Synthetic-fixture integration checks with real local AI for supported requests. Policy denials run before generation. These cases do not establish general model factuality, production identity security, or universal leak resistance."
+}

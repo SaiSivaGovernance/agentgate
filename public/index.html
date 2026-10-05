@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="AgentGate is an interactive synthetic data governance lab. Explore role-based retrieval, masked fields, access revocation, and evidence behind every answer.">
+  <title>AgentGate — Governed Data Access for AI</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Application navigation">
+      <a class="brand" href="#playground" aria-label="AgentGate home"><span class="brand-icon" aria-hidden="true"><i></i><i></i></span><span>AgentGate<span class="brand-sub">GOVERNED INTELLIGENCE</span></span></a>
+      <div class="nav-caption">WORKSPACE</div>
+      <nav class="navigation" aria-label="Main views">
+        <button class="nav-item active" data-view="playground" aria-current="page"><span data-icon="spark"></span>Playground<span class="nav-index">01</span></button>
+        <button class="nav-item" data-view="evidence"><span data-icon="receipt"></span>Evidence<span class="nav-index">02</span></button>
+        <button class="nav-item" data-view="tests"><span data-icon="shield"></span>Policy tests<span class="nav-index">03</span></button>
+      </nav>
+      <div class="sidebar-note"><span class="small-kicker">THE PRINCIPLE</span><p>Better answers begin with<br><em>the right access.</em></p><div class="note-line"></div><span>Policy before retrieval.<br>Evidence after every decision.</span></div>
+      <div class="sidebar-bottom"><span class="lab-mark"><span></span>Synthetic governance lab</span><p>Fictional data. Real policy checks.<br>No Collibra tenant connected.</p><button id="reset-button" class="text-button"><span data-icon="reset"></span>Reset this session</button></div>
+    </aside>
+    <main id="main" tabindex="-1">
+      <header class="topbar"><div class="breadcrumb">WORKSPACE <span>/</span> <strong id="breadcrumb-view">PLAYGROUND</strong></div><div class="topbar-right"><span class="local-label"><span class="live-dot"></span>Interactive portfolio lab</span><span class="session-label" id="session-label">Connecting…</span></div></header>
+      <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+      <section id="playground-view" class="view">
+        <div class="page-heading"><div><div class="eyebrow"><span></span>GOVERNANCE YOU CAN SEE</div><h1>The right answer.<br><em>The right access.</em></h1><p class="hero-copy">Ask a question. Change your role. Revoke a source.<br>Watch policy shape what an assistant is allowed to know.</p></div><div class="hero-aside"><div class="hero-insignia" aria-hidden="true"><span data-icon="shield"></span></div><p>Every answer has<br>a chain of trust.</p><span>Identity → Policy → Sources → Answer</span></div></div>
+        <section class="identity-bar" aria-labelledby="identity-title"><div class="identity-icon" data-icon="person"></div><div class="identity-heading"><span class="small-kicker" id="identity-title">YOU ARE EXPLORING AS</span><label class="sr-only" for="role-select">Simulated role</label><select id="role-select" disabled><option>Loading roles…</option></select></div><p id="role-description">Getting your session ready.</p><span class="simulation-tag" title="Role switching is an intentional demo. It is not identity authentication.">SIMULATED ROLE</span><span class="policy-version" id="policy-version">Policy —</span></section>
+        <div class="playground-grid">
+          <section class="conversation-panel" aria-labelledby="conversation-title"><div class="panel-top"><div><span class="section-number">01</span><h2 id="conversation-title">Ask with confidence</h2></div><span class="subtle-label" id="query-count">Your session</span></div>
+            <div class="conversation-intro"><p>Start with a scenario</p><span>Same question. Different permissions.</span></div>
+            <div class="scenario-grid" id="scenario-grid"></div>
+            <div class="answer-area" id="answer-area" aria-live="polite" aria-atomic="false"></div>
+            <form id="question-form" class="composer"><label class="sr-only" for="question-input">Question for the governed assistant</label><textarea id="question-input" name="question" maxlength="800" rows="2" placeholder="What would you like to know?" required disabled></textarea><div class="composer-bottom"><div class="mode-control" role="group" aria-label="Answer mode"><button id="evidence-mode" class="mode-option selected" type="button" aria-pressed="true"><span data-icon="document"></span>Evidence</button><button id="ai-mode" class="mode-option" type="button" aria-pressed="false" disabled><span data-icon="spark"></span>AI</button></div><span id="character-count" class="character-count">0 / 800</span><button type="submit" id="ask-button" class="primary-button" disabled>Ask question<span data-icon="arrow"></span></button></div></form>
+            <div class="model-note"><span class="status-dot" id="model-dot"></span><div><strong id="model-label">Evidence answer · no AI model</strong><span id="model-detail">Only permitted source excerpts are returned.</span></div><button class="plain-icon-button" id="mode-info" type="button" aria-label="Explain answer modes" title="Evidence mode returns permitted excerpts without an AI model. AI mode requires a configured, reachable local model."><span data-icon="info"></span></button></div>
+          </section>
+          <aside class="source-panel" aria-labelledby="source-title"><div class="panel-top"><div><span class="section-number">02</span><h2 id="source-title">The access boundary</h2></div><span data-icon="lock" class="panel-heading-icon"></span></div><p class="source-intro">These are the sources your current role can use. Revoke a source to change the next answer.</p><div class="source-summary" id="source-summary"><span>Loading source decisions…</span></div><div id="source-list" class="source-list"></div><div class="source-footer"><span data-icon="shield"></span><p>Access is checked before retrieval and again before an answer is returned. Changing policy clears visible conversation context.</p></div></aside>
+        </div>
+        <div class="bottom-note"><span data-icon="info"></span><p>This is a synthetic lab, not a production identity system. Roles, customers, and documents are fictional. Revocation affects future answers; it cannot erase information already seen.</p></div>
+      </section>
+      <section id="evidence-view" class="view" hidden><div class="page-heading secondary-heading"><div><div class="eyebrow"><span></span>FOLLOW THE DECISION</div><h1>Trust, with <em>receipts.</em></h1><p class="hero-copy">Inspect the policy, sources, and checks behind an answer.<br>Receipts contain metadata, never the question or source text.</p></div><button id="download-all" class="secondary-button" disabled><span data-icon="download"></span>Export session evidence</button></div><div id="evidence-stats" class="evidence-stats"></div><div class="evidence-workspace"><section class="receipt-list-panel"><div class="panel-top"><div><span class="section-number">01</span><h2>Decision history</h2></div><span class="subtle-label" id="receipt-count">0 receipts</span></div><div id="receipt-list"></div></section><section class="receipt-detail-panel" id="receipt-detail" aria-live="polite"></section></div><div class="bottom-note"><span data-icon="info"></span><p>Evidence belongs to this browser session. It is held in bounded server memory and clears when the server restarts. Policy changes preserve metadata receipts while clearing conversation content.</p></div></section>
+      <section id="tests-view" class="view" hidden><div class="page-heading secondary-heading"><div><div class="eyebrow"><span></span>TEST THE BOUNDARY</div><h1>Show the checks.<br><em>Not just the promise.</em></h1><p class="hero-copy">Run the actual policy tests against isolated synthetic cases.<br>Your conversation and access settings stay unchanged.</p></div><button id="run-tests" class="primary-button" disabled><span data-icon="play"></span>Run policy tests</button></div><section class="test-panel"><div class="panel-top"><div><span class="section-number">01</span><h2>Policy verification</h2></div><span class="subtle-label">ISOLATED EXECUTION</span></div><div id="test-results"></div></section><div class="bottom-note"><span data-icon="info"></span><p>These checks exercise specific cases in the policy engine. Passing them is evidence for those cases, not a guarantee against every possible attack. Tests do not call an AI model.</p></div></section>
+      <footer class="main-footer"><span>AGENTGATE</span><p>Data governance, made tangible.</p><span>Independent portfolio project</span></footer>
+    </main>
+  </div>
+</body>
+</html>
