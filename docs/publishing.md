@@ -7,11 +7,12 @@ Recruiters can open the [AgentGate public demo](https://agentgate.trustcost-clou
 | Item | Status |
 |---|---|
 | Public interactive app | [Live on Cloudflare](https://agentgate.trustcost-cloudflare-tooling.workers.dev/); synthetic Evidence mode, no public AI generation |
-| Public source repository | [SaiSivaGovernance/agentgate](https://github.com/SaiSivaGovernance/agentgate) |
+| Public source repository | [SaiSivaGovernance/agentgate](https://github.com/SaiSivaGovernance/agentgate); Cloudflare release pushed at commit [`0273f50`](https://github.com/SaiSivaGovernance/agentgate/commit/0273f50) |
 | Public verification | 15/15 HTTP smoke checks against local Workers and the deployed service; browser masking, denial, revocation, evidence, and 8/8 policy checks verified |
 | Automated regression tests | 34/34 passed: 19 core, 6 local HTTP, and 9 Cloudflare adapter tests |
 | Local Ollama inference | Real Qwen3 answers verified; 8/8 local-model integration checks recorded October 5, 2026 |
-| AgentGate LinkedIn project / Featured item | Pending verification |
+| AgentGate LinkedIn project | Saved and verified in [Projects](https://www.linkedin.com/in/sai-siva-m-942179419/details/projects/), project ID `235092861`; includes live-demo and GitHub URLs plus an attached GitHub media card |
+| AgentGate LinkedIn Featured item | Pending; not saved |
 | Walkthrough recording | Not created |
 | Collibra environment connection | Not connected |
 
@@ -31,7 +32,13 @@ The public Cloudflare Worker executes the policy engine and returns permitted sy
 
 Each public visitor receives an isolated session with a fixed 30-minute lifetime. Questions and decisions are stored temporarily, so use fictional scenarios only. Expired session state cannot be read; cleanup alarms perform physical deletion on a best-effort schedule. Roles remain simulated, and there is no identity-provider or Collibra integration. See [Cloudflare deployment details](../cloudflare/README.md).
 
-## LinkedIn project copy
+## Saved LinkedIn project
+
+The project was saved on October 5, 2026 as **AgentGate — Governed Data Access for AI**, dated **October 2026–October 2026**, with **Data Governance**, **Data Privacy**, and **Metadata Management** skills. Both the live demo and source repository are included in the description, with GitHub also attached as a media card. The saved project was verified in the profile’s Projects list.
+
+A separate Featured item has not been saved. The Projects entry is complete independently of Featured.
+
+## Project links and description
 
 **Title:** AgentGate — Governed Data Access for AI
 
@@ -41,4 +48,4 @@ Each public visitor receives an isolated session with a fixed 30-minute lifetime
 
 **Source code, architecture, setup, and tests:** https://github.com/SaiSivaGovernance/agentgate
 
-The project entry can link directly to the public demo and include the GitHub URL in its description. A Featured item can use the same live demo URL. Public Evidence mode and local AI should stay clearly distinguished in portfolio claims.
+The saved Projects entry includes both links above. A future Featured item can use the same live demo URL. Public Evidence mode and local AI remain distinct in the portfolio description.
