@@ -17,6 +17,7 @@ const ASSETS = new Map([
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
   ['/favicon.svg', ['favicon.svg', 'image/svg+xml']],
+  ['/share-preview.jpg', ['share-preview.jpg', 'image/jpeg']],
 ]);
 
 class HttpError extends Error {

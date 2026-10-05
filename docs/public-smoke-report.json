@@ -1,0 +1,70 @@
+{
+  "project": "AgentGate",
+  "base": "https://agentgate.trustcost-cloudflare-tooling.workers.dev",
+  "checkedAt": "2026-10-05T21:30:19.853Z",
+  "passed": 15,
+  "total": 15,
+  "inference": "evidence-only; no public model inference",
+  "checks": [
+    {
+      "name": "Public HTML and recruiter links are available without login",
+      "passed": true
+    },
+    {
+      "name": "Public service explicitly uses evidence mode without an AI model",
+      "passed": true
+    },
+    {
+      "name": "Session cookie and visitor isolation",
+      "passed": true
+    },
+    {
+      "name": "Support gets masked account evidence and permitted citations",
+      "passed": true
+    },
+    {
+      "name": "Receipt export contains metadata, and another visitor cannot read it",
+      "passed": true
+    },
+    {
+      "name": "Role changes clear context and persist on the next request",
+      "passed": true
+    },
+    {
+      "name": "Marketing cannot retrieve customer information",
+      "passed": true
+    },
+    {
+      "name": "Marketing can still use campaign aggregates",
+      "passed": true
+    },
+    {
+      "name": "Revocation invalidates a warm cache and blocks the source",
+      "passed": true
+    },
+    {
+      "name": "Policy evaluation passes without altering visitor decisions",
+      "passed": true
+    },
+    {
+      "name": "Public AI generation is explicitly disabled",
+      "passed": true
+    },
+    {
+      "name": "Foreign-origin requests and forged policy fields are rejected",
+      "passed": true
+    },
+    {
+      "name": "Invalid content types, excessive bodies and methods are rejected",
+      "passed": true
+    },
+    {
+      "name": "Private files are absent from public static assets",
+      "passed": true
+    },
+    {
+      "name": "Reset clears only the current visitor session",
+      "passed": true
+    }
+  ]
+}

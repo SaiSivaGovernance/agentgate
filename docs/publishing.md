@@ -1,57 +1,44 @@
 # Public showcase and LinkedIn
 
-The intended visitor journey is **LinkedIn Featured → one public AgentGate project page → interactive demo, source code, architecture, verification evidence and a short walkthrough**. This gives a recruiter a fast demonstration and a route into the whole project without requiring them to install tools first.
+Recruiters can open the [AgentGate public demo](https://agentgate.trustcost-cloudflare-tooling.workers.dev/) without signing in, try its governance controls, and follow **View on GitHub** to the complete source, architecture, setup instructions, and verification evidence.
 
 ## Current publication status
 
 | Item | Status |
 |---|---|
-| Local application | Working; 25/25 automated tests and 8/8 local integration checks passed |
-| Local Ollama inference | Real Qwen3 answers verified through the application and browser |
-| Public AgentGate page or app URL | Not created |
-| Public source repository | Published: [SaiSivaGovernance/agentgate](https://github.com/SaiSivaGovernance/agentgate), including application source, tests, documentation and preview |
+| Public interactive app | [Live on Cloudflare](https://agentgate.trustcost-cloudflare-tooling.workers.dev/); synthetic Evidence mode, no public AI generation |
+| Public source repository | [SaiSivaGovernance/agentgate](https://github.com/SaiSivaGovernance/agentgate) |
+| Public verification | 15/15 HTTP smoke checks against local Workers and the deployed service; browser masking, denial, revocation, evidence, and 8/8 policy checks verified |
+| Automated regression tests | 34/34 passed: 19 core, 6 local HTTP, and 9 Cloudflare adapter tests |
+| Local Ollama inference | Real Qwen3 answers verified; 8/8 local-model integration checks recorded October 5, 2026 |
+| AgentGate LinkedIn project / Featured item | Pending verification |
 | Walkthrough recording | Not created |
-| AgentGate LinkedIn Featured item | Not added |
-| Collibra environment connection | Not available |
+| Collibra environment connection | Not connected |
 
-The existing TrustCost AI deployment is a different project. Its public URL should not be used as an AgentGate demo link.
+The existing TrustCost AI deployment is a separate project. Use the AgentGate URL above for this showcase.
 
-## What belongs on the public page
+## Visitor walkthrough
 
-1. A clear introduction: “Explore how role and source-access policies shape an AI assistant's answers.”
-2. A visible **Try the demo** link and a concise three-step scenario: permitted account answer, role-based denial, revoked-source denial.
-3. An actual screenshot or short recording of the verified local AI flow, with its recording date and model named.
-4. A **View source** link to the complete reproducible source repository, including synthetic fixtures and startup instructions.
-5. Architecture, API details and a dated verification record that distinguishes deterministic checks, HTTP tests and real model tests.
-6. Scope in plain language: synthetic data, simulated roles, no Collibra connection, and the public demo's actual inference mode.
+1. Select **Load first scenario**, then **Ask question** as Support analyst. Inspect the permitted account and adjustment evidence with masked fields.
+2. Switch to Marketing analyst and repeat **Customer account**. The same request is blocked by its source policy.
+3. Select **Inspect evidence** to review the decision receipt. For revocation, ask **Product knowledge**, revoke **Atlas Flex · product guide**, and ask again. The previous conversation clears and the revoked source cannot support the answer.
 
-Do not publish nonfunctional buttons, invented repository links, or an “AI powered” badge on a deterministic-only hosted demonstration.
+The app provides a visible GitHub link, author attribution, a short guide, and social-preview metadata. Its source repository also contains the verified local-model setup and architecture. A walkthrough video remains optional follow-up work.
 
-## Local AI and public hosting
+## Public demo and local AI
 
-The current model runs on the user's Mac. A visitor opening a Cloudflare page cannot reach that Mac's `127.0.0.1` endpoint; `localhost` refers to each visitor's own computer. The current Node server also deliberately binds to loopback and accepts only local app origins. It needs a deployment-specific implementation before being reachable publicly.
+The public Cloudflare Worker executes the policy engine and returns permitted synthetic excerpts; it does **not** call an AI model or expose the author's computer. Requests for public AI generation are explicitly rejected. The local Node application can use Ollama with `qwen3:1.7b` for generated answers under the same governance checks.
 
-Two publication approaches are possible:
+Each public visitor receives an isolated session with a fixed 30-minute lifetime. Questions and decisions are stored temporarily, so use fictional scenarios only. Expired session state cannot be read; cleanup alarms perform physical deletion on a best-effort schedule. Roles remain simulated, and there is no identity-provider or Collibra integration. See [Cloudflare deployment details](../cloudflare/README.md).
 
-| Approach | What visitors can use | What remains to decide |
-|---|---|---|
-| Public project page and hosted evidence-mode lab | Interactive governance rules, sources, masking, revocation and receipts; a recorded real local-AI walkthrough | Hosting adaptation and clear evidence-mode labels; no real public inference claim |
-| Public project page and live AI service | The same governed interaction with fresh model-generated answers | A reachable inference host/provider, credentials if applicable, operating cost, availability and request limits |
-
-A static GitHub Pages site can host the project explanation, documentation and recording links, but the current Node session and policy API needs a backend. Cloudflare can serve a project page; deploying the interactive backend still requires porting the session/runtime design or connecting to an appropriate service. Merely uploading `public/` does not create a functioning AI application.
-
-Exposing a developer's computer continuously would tie uptime to that computer, its network and running processes. That has not been configured. There is no tunnel, cloud API or public inference endpoint in this build. The local model has no per-request API bill; always-available public AI is a separate hosting decision.
-
-## Publish only verified artifacts
-
-The source distribution should include the application source, fictional fixture catalog, automated tests, docs and model provenance. Exclude `.local/`, `.env`, local logs and installed model weights. The repository intentionally contains synthetic fixture values so others can reproduce the checks; the demonstration should not imply that those fictional values are secret from someone reading its code.
-
-Before saving the LinkedIn link, verify that a signed-out visitor can open the page over HTTPS and follow every displayed source/demo/documentation link. Run the advertised public scenario against the deployed service. Record its actual inference mode and limitations in the verification document.
-
-## Suggested Featured copy after publication
+## LinkedIn project copy
 
 **Title:** AgentGate — Governed Data Access for AI
 
-**Description:** Explore how server-side access rules, field masking and source revocation change an assistant's answers. Inspect permitted citations and downloadable policy evidence, then review the architecture and reproducible tests. Built with synthetic data and simulated roles; no Collibra tenant is connected.
+**Project URL:** https://agentgate.trustcost-cloudflare-tooling.workers.dev/
 
-Add a sentence describing the deployed inference mode only after it is selected and verified. A local recording should say “Recorded local Qwen3 demonstration,” while a genuinely live hosted model should identify its provider and model accurately. Do not substitute a placeholder URL in a real LinkedIn entry.
+**Description:** Built a governed data-access lab that demonstrates role-based source filtering, field masking, source revocation, and inspectable JSON decision receipts. Try the public Evidence demo without signing in: ask as Support, switch to Marketing, or revoke a source to see policy change the result. The hosted demo returns permitted synthetic excerpts; the complete GitHub project also supports local AI generation with Ollama and Qwen3. Uses fictional data and simulated roles; no Collibra connection.
+
+**Source code, architecture, setup, and tests:** https://github.com/SaiSivaGovernance/agentgate
+
+The project entry can link directly to the public demo and include the GitHub URL in its description. A Featured item can use the same live demo URL. Public Evidence mode and local AI should stay clearly distinguished in portfolio claims.

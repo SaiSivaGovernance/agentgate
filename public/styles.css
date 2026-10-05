@@ -18,3 +18,21 @@
 
 .test-score{white-space:nowrap;flex-shrink:0}.test-summary>div:last-child{min-width:0}
 @media(max-width:700px){.test-summary{align-items:flex-start}.test-score{padding-top:2px}}
+
+/* A short recruiter walkthrough, with the source project always within reach. */
+.github-link{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid #cfc8dc;border-radius:7px;color:var(--violet-dark);font-size:10px;font-weight:600;text-decoration:none;white-space:nowrap}
+.github-link:hover{background:var(--violet-pale)}
+.quickstart{margin:0 0 24px;padding:20px 22px;border:1px solid #dcd7e5;border-radius:11px;background:#f7f5fa}
+.quickstart-heading{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.quickstart h2{font-size:13px;font-weight:600;color:#514462;margin:0 0 6px}
+.quickstart-heading p{font-size:10px;line-height:1.7;color:#70667d;margin:0;max-width:540px}
+.quickstart .secondary-button{border-color:#d7cfe3;color:#675577;background:#fffefa;font-size:10px;padding:10px 12px}
+.quickstart-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:0;margin:18px 0 0;list-style:none}
+.quickstart-steps li{display:flex;align-items:flex-start;gap:10px}
+.step-number{width:23px;height:23px;flex-shrink:0;border:1px solid #dbd3e6;background:#eeebf4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:#79638f}
+.quickstart-steps p{margin:1px 0 0;font-size:10px;line-height:1.7;color:#776d7f}
+.quickstart-steps strong{display:block;font-size:10px;font-weight:600;color:#594c66;margin-bottom:4px}
+.quickstart-next{border-top:1px solid #e4dfeb;padding-top:12px;margin:15px 0 0;color:#776d7f;font-size:9px;line-height:1.7}
+.main-footer a{color:#665377;text-underline-offset:3px}.footer-source{margin-left:auto;font-size:9px}
+@media(max-width:1250px){.topbar-right{gap:10px}.topbar-right .local-label{display:none}.quickstart{padding:18px}.quickstart-steps{gap:15px}}
+@media(max-width:700px){.topbar{gap:10px;flex-wrap:wrap;padding:14px 0}.topbar-right{gap:9px}.topbar-right .session-label{display:none}.github-link{font-size:9px;padding:8px 9px}.quickstart{padding:18px;margin-bottom:20px}.quickstart-heading{align-items:flex-start;flex-direction:column;gap:12px}.quickstart h2{font-size:14px}.quickstart-heading p,.quickstart-steps p,.quickstart-steps strong{font-size:11px}.quickstart-steps{grid-template-columns:1fr;gap:13px}.quickstart-next{font-size:10px}.main-footer{flex-wrap:wrap}.main-footer .footer-source{margin-left:0;flex-basis:100%;font-size:10px}}
