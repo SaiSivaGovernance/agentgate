@@ -20,7 +20,7 @@ The standalone model smoke check used `think: false`, `stream: false`, temperatu
 
 | Area | Command or scenario | Status and evidence |
 |---|---|---|
-| Core and HTTP regression suite | `npm test` | **25/25 passed:** 19 core tests and 6 HTTP tests |
+| Core and HTTP regression suite | `npm test` | **25/25 passed:** 19 core tests and 6 HTTP tests, including a fresh unauthenticated clone of the published repository |
 | Real-model HTTP integration suite | `node scripts/smoke.mjs` | **8/8 passed** against local AgentGate with `qwen3:1.7b`; [JSON report](live-model-report.json) |
 | Interactive deterministic evaluation | `POST /api/evaluate {}` | Passed HTTP checks and the browser Run policy tests control: 8/8 isolated cases, no AI calls |
 | Real AI support answer | Support role; account and adjustment question | Passed HTTP and browser checks: real Qwen3 answer, **Masked** verdict, two permitted citations, three masked fields; fixture contact/payment values excluded |
@@ -33,7 +33,7 @@ The standalone model smoke check used `think: false`, `stream: false`, temperatu
 | Evidence export | Fetch receipt, parse JSON, inspect fields and attempt cross-session read | Passed HTTP suite and integration smoke: question hash present; question, answer and source bodies absent; other-session access denied. Browser Download JSON button invoked; the automation download event timed out and no saved file was confirmed. HTTP attachment content and ownership checks passed |
 | Browser presentation | Actual support/marketing questions and answer states | Completed desktop (1360 px) and mobile (390 px) checks with no horizontal overflow, masked citation disclosure, source revocation and the policy-test button. No browser console warnings/errors observed. [Screenshot](agentgate-preview.jpg). Native download completion remains unconfirmed |
 | Public deployment | HTTPS URL and deployed API scenarios | Not deployed |
-| Public source | Source distribution | Public repository created at [SaiSivaGovernance/agentgate](https://github.com/SaiSivaGovernance/agentgate); source-upload verification pending |
+| Public source | Source distribution | Complete source published and all 24 remote file hashes verified at [SaiSivaGovernance/agentgate](https://github.com/SaiSivaGovernance/agentgate) on October 5, 2026; unauthenticated clone succeeded |
 | LinkedIn | AgentGate Featured entry | Not added |
 
 The integration report was recorded at **3:07 PM America/New_York on October 5, 2026** (`2026-10-05T19:07:03.497Z`). It records eight observed scenario results. Several scenarios check policy decisions without generation; “8/8” does not mean eight separate AI completions.

@@ -9,7 +9,7 @@ The intended visitor journey is **LinkedIn Featured → one public AgentGate pro
 | Local application | Working; 25/25 automated tests and 8/8 local integration checks passed |
 | Local Ollama inference | Real Qwen3 answers verified through the application and browser |
 | Public AgentGate page or app URL | Not created |
-| Public source repository | Public repository created: [SaiSivaGovernance/agentgate](https://github.com/SaiSivaGovernance/agentgate); source distribution prepared for upload |
+| Public source repository | Published: [SaiSivaGovernance/agentgate](https://github.com/SaiSivaGovernance/agentgate), including application source, tests, documentation and preview |
 | Walkthrough recording | Not created |
 | AgentGate LinkedIn Featured item | Not added |
 | Collibra environment connection | Not available |
